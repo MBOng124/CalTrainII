@@ -1,9 +1,12 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Trains implements Runnable{
     private int count;
     private static int idCount = 0;
     private int trainId;
+    private ArrayList<Passenger> passengers;
 
 
     public Trains(){
@@ -47,6 +50,22 @@ public class Trains implements Runnable{
 
     public void setTrainId(int trainId) {
         this.trainId = trainId;
+    }
+
+    public void addPassenger(Passenger p){
+        passengers.add(p);
+    }
+
+    public void setPassengers(ArrayList<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public Passenger getSinglePassenger(int i){
+        return passengers.get(i);
     }
 
 }

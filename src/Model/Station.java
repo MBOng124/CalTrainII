@@ -59,4 +59,8 @@ public class Station {
     public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
+
+    public Passenger getSinglePassenger(int i){
+        return passengers.get(i);
+    }
 }
