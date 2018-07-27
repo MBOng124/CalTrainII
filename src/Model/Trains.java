@@ -2,29 +2,33 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Trains implements Runnable{
+public class Trains extends Thread{
     private int count;
+    private int maxCount;
     private static int idCount = 0;
     private int trainId;
     private ArrayList<Passenger> passengers;
+    private Station station;
 
 
-    public Trains(){
+    public Trains(int maxCount){
         count = 0;
         this.setTrainId(idCount);
         idCount++;
+        passengers = new ArrayList<>();
+        this.maxCount = maxCount;
     }
 
     public synchronized void start(){
 
     }
 
-    public synchronized void stop(){
-
-    }
-
     @Override
-    public void run() {
+    public synchronized void run() {
+        if(this.passengers.size() == maxCount || station.getPassengers().size() == 0){
+            //move to next station
+        }
+
 
     }
 
@@ -66,6 +70,21 @@ public class Trains implements Runnable{
 
     public Passenger getSinglePassenger(int i){
         return passengers.get(i);
+    }
+    public int getMaxCount() {
+        return maxCount;
+    }
+
+    public void setMaxCount(int maxCount) {
+        this.maxCount = maxCount;
+    }
+
+    public Station getStation() {
+        return station;
+    }
+
+    public void setStation(Station station) {
+        this.station = station;
     }
 
 }

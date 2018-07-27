@@ -14,6 +14,8 @@ public class Station {
         count = 0;
         this.setStationId(idCount);
         idCount++;
+        passengers = new ArrayList<>();
+
     }
 
     public int getCount() {
