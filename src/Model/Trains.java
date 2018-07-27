@@ -25,11 +25,29 @@ public class Trains extends Thread{
 
     @Override
     public synchronized void run() {
+        if(this.passengers.size() < maxCount && this.station.getPassengers().size() > 0){
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
         if(this.passengers.size() == maxCount || station.getPassengers().size() == 0){
             //move to next station
+            try {
+                this.moveNext();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
 
+    }
+
+    private void moveNext() throws InterruptedException {
+        System.out.println("Train has moved to the next line");
+        this.join();
     }
 
     public int getCount() {
@@ -71,6 +89,7 @@ public class Trains extends Thread{
     public Passenger getSinglePassenger(int i){
         return passengers.get(i);
     }
+
     public int getMaxCount() {
         return maxCount;
     }
