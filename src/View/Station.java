@@ -2,23 +2,71 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 public class Station extends JPanel {
     private JPanel mainPanel;
     private ImageIcon img;
+    private Image image;
+    private BufferedImage bufImg;
     private JLabel lbl;
+    private int x, y, movX, movY;
+    private Station_Thread thread;
 
 
     public Station(){
+        thread = new Station_Thread(this);
+        thread.start();
         mainPanel = new JPanel();
-        mainPanel.setPreferredSize(new Dimension(36, 36));
+        mainPanel.setPreferredSize(new Dimension(100, 36));
         img = new ImageIcon(this.getClass().getResource("/images/world.png"));
-        lbl = new JLabel(img);
-        mainPanel.add(lbl);
-        lbl.setVisible(true);
+        image = img.getImage();
         mainPanel.setVisible(true);
         this.setVisible(true);
-        add(mainPanel);
+        movX = 1;
+        movY = 1;
     }
+
+
+    public int getXp() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getYp() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getmovX() {
+        return movX;
+    }
+
+    public void setmovX(int movX) {
+        this.movX = movX;
+    }
+
+    public int getmovY() {
+        return movY;
+    }
+
+    public void setmovY(int movY) {
+        this.movY = movY;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, x, y, null);
+    }
+
 
 }
