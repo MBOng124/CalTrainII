@@ -9,8 +9,10 @@ public class Train extends JPanel {
     private Image image;
     private int x, y, movX, movY;
     private Train_Thread thread;
+    private Station current, next;
 
     public Train(int x, int y){
+
         thread = new Train_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -63,5 +65,21 @@ public class Train extends JPanel {
 
     public Train_Thread getThread() {
         return thread;
+    }
+
+    public Station getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Station current) {
+        this.current = current;
+    }
+
+    public Station getNext() {
+        return next;
+    }
+
+    public void setNext(Station next) {
+        this.next = next;
     }
 }

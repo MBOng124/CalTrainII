@@ -2,12 +2,15 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class CalTrain {
     private JFrame frame;
-    private JLabel addPassenger, addTrain;
+    private JLabel addPassenger, addTrain, stationLbl, startLbl, endLbl;
     private JPanel main, add, input;
+    private JOptionPane option;
 
 
     public CalTrain(){
@@ -52,6 +55,14 @@ public class CalTrain {
         add.setVisible(false);
         frame.add(add);
 
+        //for adding passengers
+        option = new JOptionPane();
+        startLbl = new JLabel("Start");
+        endLbl = new JLabel("End");
+
+        option.setLayout(null);
+        option.setPreferredSize(new Dimension(300, 200));
+
         /* Adding lables */
         addPassenger = new JLabel("Add Passenger");
         addTrain = new JLabel("Add Train");
@@ -62,6 +73,22 @@ public class CalTrain {
 
         addTrain.setBounds(0, 125, 100, 25);
         main.add(addTrain);
+
+        addPassenger.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+
+            }
+        });
+
+        addTrain.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+            }
+        });
 
 
     }
