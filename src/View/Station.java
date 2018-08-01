@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class Station extends JPanel {
     private JPanel mainPanel;
@@ -14,9 +15,11 @@ public class Station extends JPanel {
     private JLabel lbl;
     private int x, y, movX, movY;
     private Station_Thread thread;
+    private Train trains;
+    private ArrayList<Passenger> passengers;
 
 
-    public Station(){
+    public Station(int x, int y){
         thread = new Station_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -27,6 +30,8 @@ public class Station extends JPanel {
         this.setVisible(true);
         movX = 1;
         movY = 1;
+        this.x = x;
+        this.y = y;
     }
 
 
@@ -60,6 +65,26 @@ public class Station extends JPanel {
 
     public void setmovY(int movY) {
         this.movY = movY;
+    }
+
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(ArrayList<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    protected void addPassengers(Passenger passenger){
+        this.passengers.add(passenger);
+    }
+
+    protected void setTrains(Train train){
+        this.trains = train;
+    }
+
+    public Train getTrains() {
+        return trains;
     }
 
     @Override

@@ -10,19 +10,22 @@ public class Train extends JPanel {
     private int x, y, movX, movY;
     private Train_Thread thread;
 
-    public Train(){
+    public Train(int x, int y){
         thread = new Train_Thread(this);
         thread.start();
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(36, 36));
         /*img = new ImageIcon(this.getClass().getResource(" "));
         image = img.getImage();*/
+        this.x = x;
+        this.y = y;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //g.drawImage(image, x, y, null);
+        g.drawRect(x, y, 36, 36);
 
     }
 
@@ -56,5 +59,9 @@ public class Train extends JPanel {
 
     public void setmovY(int movY) {
         this.movY = movY;
+    }
+
+    public Train_Thread getThread() {
+        return thread;
     }
 }
