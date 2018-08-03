@@ -25,7 +25,20 @@ public class Passenger_Thread extends Thread{
                         panel.getCurrent().getTrains().getMaxCount()){
                     panel.getCurrent().getTrains().getPassengers().add(panel);
                     panel.setTrain(panel.getCurrent().getTrains());
-                }
+                    try {
+                        this.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    panel.setVisible(false);
+                }else if(panel.getCurrent().getTrains().getPassengers().size() >=
+                        panel.getCurrent().getTrains().getPassengers().size()){
+                    try {
+                        this.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }//else if()
             }
         }
     }
