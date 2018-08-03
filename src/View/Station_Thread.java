@@ -17,14 +17,7 @@ public class Station_Thread extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(panel.getPassengers().size() == 0){
-                panel.getTrains().getThread().notify();
-            } else{
-                int x = panel.getXp();
-                x += panel.getmovX();
-                panel.setX(x);
-                panel.repaint();
-            }
+            panel.repaint();
 
         }
     }

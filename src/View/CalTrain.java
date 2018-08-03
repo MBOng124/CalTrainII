@@ -11,7 +11,9 @@ public class CalTrain {
     private JLabel addPassenger, addTrain, stationLbl, startLbl, endLbl;
     private JPanel main, add, input;
     private JOptionPane option;
-
+	private ArrayList<Station> stations;
+	private ArrayList<Passenger> passengers;
+	private ArryaList<Train> trains;
 
     public CalTrain(){
         /*  Set up frame */
@@ -26,6 +28,7 @@ public class CalTrain {
 
         //init components
         init();
+        initStations();
 
         frame.pack();
         /*station = new Station();
@@ -78,8 +81,8 @@ public class CalTrain {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-
-
+				option = new J
+				
             }
         });
 
@@ -92,23 +95,24 @@ public class CalTrain {
 
 
     }
+    
+    private void initStations(){
+      stations = new ArrayList<Station>();
+      //add stations, substations, and terminals to the arraylist
+      
+    }
 
     public void addPassengers(Passenger passenger){
-        //add passenger stuff
+        passengers.add(passenger);   
     }
 
+        
     public void addTrains(Train train){
-
+		trains.add(train);
     }
 
-    public void addStations(){
-
-    }
-
-
-
-
-
-
+	public void addStations(Station station){
+	  stations.add(station);
+	}
 
 }

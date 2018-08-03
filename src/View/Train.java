@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Train extends JPanel {
     private JPanel mainPanel;
@@ -10,9 +11,10 @@ public class Train extends JPanel {
     private int x, y, movX, movY;
     private Train_Thread thread;
     private Station current, next;
+    private final int maxCount;
+    private ArrayList<Passenger> passengers;
 
-    public Train(int x, int y){
-
+    public Train(int x, int y, int maxCount){
         thread = new Train_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -21,12 +23,14 @@ public class Train extends JPanel {
         image = img.getImage();*/
         this.x = x;
         this.y = y;
+        this.maxCount = maxCount;
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //g.drawImage(image, x, y, null);
+        this.setBounds(x, y, 36, 360);
         g.drawRect(x, y, 36, 36);
 
     }
@@ -81,5 +85,21 @@ public class Train extends JPanel {
 
     public void setNext(Station next) {
         this.next = next;
+    }
+
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers(ArrayList<Passenger> passengers) {
+        this.passengers = passengers;
+    }
+
+    public void addPassengers(Passenger passenger){
+        passengers.add(passenger);
+    }
+
+    public int getMaxCount() {
+        return maxCount;
     }
 }

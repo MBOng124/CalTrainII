@@ -9,10 +9,11 @@ public class Passenger extends JPanel {
     private Image image;
     private Passenger_Thread thread;
     private int x, y, movX, movY;
-    private Train train;
-    private Station start, end;
+    private Train train;// not sure if this is needed
+    private int start, end;
+    private Station current;
 
-    public Passenger(int x, int y, Station start, Station end){
+    public Passenger(int x, int y, int start, int end, Station initial){
         thread = new Passenger_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -25,6 +26,7 @@ public class Passenger extends JPanel {
         this.y = y;
         this.start = start;
         this.end = end;
+        this.current = initial;
     }
 
     @Override
@@ -79,12 +81,20 @@ public class Passenger extends JPanel {
         return thread;
     }
 
-    public Station getStart()
+    public int getStart()
     {
         return start;
     }
 
-    public Station getEnd() {
+    public int getEnd() {
         return end;
+    }
+
+    public Station getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Station current) {
+        this.current = current;
     }
 }

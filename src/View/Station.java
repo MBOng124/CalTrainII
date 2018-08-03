@@ -13,10 +13,13 @@ public class Station extends JPanel {
     private Image image;
     private BufferedImage bufImg;
     private JLabel lbl;
-    private int x, y, movX, movY;
+    private int x, y;
     private Station_Thread thread;
     private Train trains;
     private ArrayList<Passenger> passengers;
+    private int count;
+    private static int idCount = 0;
+    private int stationId;
 
 
     public Station(int x, int y){
@@ -28,12 +31,32 @@ public class Station extends JPanel {
         image = img.getImage();
         mainPanel.setVisible(true);
         this.setVisible(true);
-        movX = 1;
-        movY = 1;
         this.x = x;
         this.y = y;
+        count = 0;
+        this.setStationId(idCount);
+        idCount++;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public static int getIdCount() {
+        return idCount;
+    }
+
+    public int getStationId() {
+        return stationId;
+    }
+
+    public void setStationId(int stationCount) {
+        this.stationId = stationCount;
+    }
 
     public int getXp() {
         return x;
@@ -49,22 +72,6 @@ public class Station extends JPanel {
 
     public void setY(int y) {
         this.y = y;
-    }
-
-    public int getmovX() {
-        return movX;
-    }
-
-    public void setmovX(int movX) {
-        this.movX = movX;
-    }
-
-    public int getmovY() {
-        return movY;
-    }
-
-    public void setmovY(int movY) {
-        this.movY = movY;
     }
 
     public ArrayList<Passenger> getPassengers() {
@@ -90,6 +97,7 @@ public class Station extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        this.setBounds(x, y, 36, 36);
         g.drawImage(image, x, y, null);
     }
 

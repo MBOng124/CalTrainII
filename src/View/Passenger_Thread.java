@@ -14,19 +14,19 @@ public class Passenger_Thread extends Thread{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(panel.getXp() >= 30){
+            if(panel.getCurrent().getTrains() == null){
                 try {
                     this.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else{
-                int x = panel.getXp();
-                x += panel.getmovX();
-                panel.setX(x);
-                panel.repaint();
+            }else{
+                if(panel.getCurrent().getTrains().getPassengers().size() <
+                        panel.getCurrent().getTrains().getMaxCount()){
+                    panel.getCurrent().getTrains().getPassengers().add(panel);
+                    panel.setTrain(panel.getCurrent().getTrains());
+                }
             }
-
         }
     }
 }
