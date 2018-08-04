@@ -45,7 +45,8 @@ public class Train_Thread extends Thread{
                 }
             }else if(panel.getCurrent() instanceof SubStation){
                 if(panel.getNext().getTrains() == null){
-                        //move train
+                        //move train and notify the train behind it
+                    
                 }
 
                 if(panel.getNext().getTrains() != null){

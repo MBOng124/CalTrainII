@@ -12,9 +12,10 @@ public class Train extends JPanel {
     private Train_Thread thread;
     private Station current, next;
     private final int maxCount;
+    private ArrayList<Station> stations;
     private ArrayList<Passenger> passengers;
 
-    public Train(int x, int y, int maxCount){
+    public Train(int x, int y, int maxCount, ArrayList<Station> stations){
         thread = new Train_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -24,6 +25,7 @@ public class Train extends JPanel {
         this.x = x;
         this.y = y;
         this.maxCount = maxCount;
+        this.stations = stations;
     }
 
     @Override

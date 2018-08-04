@@ -13,7 +13,7 @@ public class CalTrain {
     private JOptionPane option;
 	private ArrayList<Station> stations;
 	private ArrayList<Passenger> passengers;
-	private ArryaList<Train> trains;
+	private ArrayList<Train> trains;
 
     public CalTrain(){
         /*  Set up frame */
@@ -81,7 +81,7 @@ public class CalTrain {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-				option = new J
+
 				
             }
         });
