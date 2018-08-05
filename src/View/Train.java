@@ -10,12 +10,14 @@ public class Train extends JPanel {
     private Image image;
     private int x, y, movX, movY;
     private Train_Thread thread;
-    private Station current, next;
+    private Component current, next;
     private final int maxCount;
-    private ArrayList<Station> stations;
+    private JLabel stationLbl;
+    private ArrayList<Component> stations;
     private ArrayList<Passenger> passengers;
 
-    public Train(int x, int y, int maxCount, ArrayList<Station> stations){
+    public Train(int x, int y, int maxCount, ArrayList<Component> stations){
+        System.out.println("Train Created");
         thread = new Train_Thread(this);
         thread.start();
         mainPanel = new JPanel();
@@ -26,13 +28,19 @@ public class Train extends JPanel {
         this.y = y;
         this.maxCount = maxCount;
         this.stations = stations;
+        mainPanel.setOpaque(false);
+        this.setOpaque(false);
+        stationLbl = new JLabel();
+        stationLbl.setBounds(x, y, 36, 36);
+        mainPanel.add(stationLbl);
+        stationLbl.setVisible(true);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //g.drawImage(image, x, y, null);
-        this.setBounds(x, y, 36, 360);
+        //this.setBounds(x, y, 36, 360);
         g.drawRect(x, y, 36, 36);
 
     }
@@ -73,19 +81,19 @@ public class Train extends JPanel {
         return thread;
     }
 
-    public Station getCurrent() {
+    public Component getCurrent() {
         return current;
     }
 
-    public void setCurrent(Station current) {
+    public void setCurrent(Component current) {
         this.current = current;
     }
 
-    public Station getNext() {
+    public Component getNext() {
         return next;
     }
 
-    public void setNext(Station next) {
+    public void setNext(Component next) {
         this.next = next;
     }
 
@@ -103,5 +111,21 @@ public class Train extends JPanel {
 
     public int getMaxCount() {
         return maxCount;
+    }
+
+    public ArrayList<Component> getStations() {
+        return stations;
+    }
+
+    public void setStations(ArrayList<Component> stations) {
+        this.stations = stations;
+    }
+
+    public JLabel getStationLbl() {
+        return stationLbl;
+    }
+
+    public void setStationLbl(JLabel stationLbl) {
+        this.stationLbl = stationLbl;
     }
 }

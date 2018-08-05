@@ -11,7 +11,7 @@ public class Passenger extends JPanel {
     private int x, y, movX, movY;
     private Train train;// not sure if this is needed
     private int start, end;
-    private Station current;
+    private Component current;
 
     public Passenger(int x, int y, int start, int end, Station initial){
         thread = new Passenger_Thread(this);
@@ -90,11 +90,11 @@ public class Passenger extends JPanel {
         return end;
     }
 
-    public Station getCurrent() {
+    public Component getCurrent() {
         return current;
     }
 
-    public void setCurrent(Station current) {
+    public void setCurrent(Component current) {
         this.current = current;
     }
 }

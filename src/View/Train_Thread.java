@@ -1,72 +1,55 @@
 package View;
+
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /*  STILL LACKS CODE FOR ANIMATION  */
 public class Train_Thread extends Thread{
     public Train panel;
     private int initX, initY;
+    private int at = 0;
     private Terminal terminal;
+    private Lock lock;
+    private Condition condition;
 
     public Train_Thread(Train train){
         this.panel = train;
+        lock = new ReentrantLock();
+        condition = lock.newCondition();
     }
 
-    public synchronized void run(){
+    public void run(){
         initX = panel.getXp();
         initY = panel.getYp();
+        CalTrain.getStations().get(at).setTrains(panel);
         while(true){
             try {
                 this.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if(panel.getCurrent() instanceof Station){
-                if(panel.getPassengers().size() == panel.getMaxCount() ||
-                        panel.getCurrent().getPassengers().size() == 0){//checks if the train is full or if the station is
-                    if(!(panel.getNext() instanceof Terminal)){
-                        if(panel.getNext().getTrains() == null){            //empty
-                            //move train and notify the train in the previous station
-
-                        }else {
-                            try {
-                                this.wait();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }else if(panel.getNext() instanceof Terminal){
-                        //move train to terminal
+            lock.lock();
+            System.out.println("Train: "+panel.getXp()+" "+at);
+            System.out.println(CalTrain.getStations().get(at).getTrains());
+            try{
+                if(CalTrain.getStations().get(at+1).getTrains() == null) {
+                    if(at < 15){
+                        CalTrain.getStations().get(at).setTrains(null);
+                        CalTrain.getStations().get(at + 1).setTrains(panel);
+                        at++;
                     }
-
-                }else{
-                    try {
-                        this.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if(at >= 15){
+                        CalTrain.getStations().get(at).setTrains(null);
+                        System.out.println("Arrived at last station bye");
+                        this.join();
                     }
                 }
-            }else if(panel.getCurrent() instanceof SubStation){
-                if(panel.getNext().getTrains() == null){
-                        //move train and notify the train behind it
-                    
-                }
-
-                if(panel.getNext().getTrains() != null){
-                    try {
-                        this.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
-            }else if(panel.getCurrent() instanceof Terminal){
-                if(panel.getNext().getTrains() == null){
-                    //move train
-                }else{
-                    try {
-                        this.wait();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println("Unlocked");
+                lock.unlock();
             }
 
         }
