@@ -22,8 +22,9 @@ public class Train extends JPanel {
         thread.start();
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(36, 36));
-        /*img = new ImageIcon(this.getClass().getResource(" "));
-        image = img.getImage();*/
+        img = new ImageIcon(this.getClass().getResource("/images/train2.png"));
+        image = img.getImage();
+        movX = 1;
         this.x = x;
         this.y = y;
         this.maxCount = maxCount;
@@ -40,9 +41,9 @@ public class Train extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //g.drawImage(image, x, y, null);
+        g.drawImage(image, x, y, null);
         //this.setBounds(x, y, 36, 360);
-        g.drawRect(x, y, 36, 36);
+        //g.drawRect(x, y, 36, 36);
 
     }
 
