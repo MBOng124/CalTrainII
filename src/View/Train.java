@@ -34,6 +34,7 @@ public class Train extends JPanel {
         stationLbl.setBounds(x, y, 36, 36);
         mainPanel.add(stationLbl);
         stationLbl.setVisible(true);
+        passengers = new ArrayList<>();
     }
 
     @Override

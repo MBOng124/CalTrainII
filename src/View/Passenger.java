@@ -27,13 +27,15 @@ public class Passenger extends JPanel {
         this.start = start;
         this.end = end;
         this.current = initial;
+        mainPanel.setOpaque(false);
+        this.setOpaque(false);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         //g.drawImage(image, x, y, null);
-        this.setBounds(x, y, 36, 36);
+        //this.setBounds(x, y, 36, 36);
 
     }
 

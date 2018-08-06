@@ -1,7 +1,11 @@
 package View;
 
+import javafx.fxml.Initializable;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -12,7 +16,7 @@ public class CalTrain {
     private JButton addPass, addTrains;
     private JComboBox passStart, passEnd;
     private JTextField trainTxt;
-    private JPanel main, add, input;
+    private JPanel main, add, input, passOpt, trainOpt;
     private JOptionPane option, trainOption;
 
     public static ArrayList<Component> getStations() {
@@ -37,7 +41,6 @@ public class CalTrain {
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setLayout(null);
         frame.setBackground(Color.WHITE);
-        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
 
@@ -96,6 +99,12 @@ public class CalTrain {
         trainTxt = new JTextField();
         addPass = new JButton("Add");
         addTrains = new JButton("Add");
+        passOpt = new JPanel();
+        trainOpt = new JPanel();
+        passOpt.setLayout(null);
+        passOpt.setBounds(0, 0, 300, 200);
+        trainOpt.setLayout(null);
+        trainOpt.setBounds(0, 0, 300, 200);
         passStart = new JComboBox();
         passEnd = new JComboBox();
 
@@ -107,25 +116,25 @@ public class CalTrain {
             passEnd.addItem(j);
         }
 
-        trainOption.add(qtyLbl);
-        trainOption.add(trainTxt);
-        trainOption.add(addTrains);
+        trainOpt.add(qtyLbl);
+        trainOpt.add(trainTxt);
+        trainOpt.add(addTrains);
 
-        qtyLbl.setBounds(20, 20, 75, 30);
+        qtyLbl.setBounds(10, 20, 85, 30);
         trainTxt.setBounds(110, 20, 50, 25);
-        addTrains.setBounds(125, 155, 50, 25);
+        addTrains.setBounds(60, 105, 75, 25);
 
-        option.add(startLbl);
-        option.add(endLbl);
-        option.add(addPass);
-        option.add(passStart);
-        option.add(passEnd);
+        passOpt.add(startLbl);
+        passOpt.add(endLbl);
+        passOpt.add(addPass);
+        passOpt.add(passStart);
+        passOpt.add(passEnd);
 
         startLbl.setBounds(20, 20, 75, 25);
-        endLbl.setBounds(20, 60, 50, 25);
+        endLbl.setBounds(20, 60, 75, 25);
         passStart.setBounds(110, 20, 45, 20);
         passEnd.setBounds(110, 60, 45, 20);
-        addPass.setBounds(125, 155, 50, 25);
+        addPass.setBounds(60, 105, 75, 25);
 
 
         addPassenger.setBackground(Color.LIGHT_GRAY);
@@ -136,11 +145,14 @@ public class CalTrain {
         addTrain.setBounds(0, 125, 100, 25);
         input.add(addTrain);
 
+
+        //Action Listeners
         addPassenger.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                option.setVisible(true);
+                UIManager.put("OptionPane.minimumSize", new Dimension(300, 200));
+                option.showMessageDialog(frame, passOpt);
             }
         });
 
@@ -148,7 +160,36 @@ public class CalTrain {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                trainOption.setVisible(true);
+                UIManager.put("OptionPane.minimumSize", new Dimension(300, 200));
+                option.showMessageDialog(frame, trainOpt);
+            }
+        });
+
+        addPass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int start, end;
+                start = Integer.parseInt(passStart.getSelectedItem().toString());
+                end = Integer.parseInt(passEnd.getSelectedItem().toString());
+                System.out.println();
+                /*if(end > start){
+                    Passenger passenger = new Passenger(0, 0, start*2-1, end*2-1, stations.get(start*2-1));
+                }else{
+                    new JOptionPane().showMessageDialog(option, "Invalid input");
+                }*/
+
+
+            }
+        });
+
+        addTrains.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int capacity;
+                capacity = Integer.parseInt(trainTxt.getText().toString());
+                Train train = new Train(10, 20, capacity, stations);
+                train.setBounds(0, 0, 300, 500);
+                main.add(train);
             }
         });
 
@@ -158,8 +199,12 @@ public class CalTrain {
         train2 = new Train(50, 20, 10, stations);
         main.add(train2);
         train2.setBounds(0, 0, 300, 500);
-        pass1 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
-        pass2 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+
+
+
+        /*pass1 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+        pass2 = new Passenger(120, 20, 3, 5, CalTrain.getStations().get(2));*/
+        //stations.get(3).getPassengers().add(pass1);
         /*pass3 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
         pass4 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));*/
 
@@ -174,7 +219,13 @@ public class CalTrain {
             stations.add(subStation);
             stations.add(station);
         }
-      
+
+        for(int j = 0; j < stations.size(); j++){
+            if(stations.get(j) instanceof Station){
+                System.out.println(j);
+            }
+        }
+
     }
 
     public void addPassengers(Passenger passenger){

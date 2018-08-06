@@ -21,7 +21,7 @@ public class Component extends JPanel {
 
 
     public Component(int x, int y){
-        
+        passengers = new ArrayList<>();
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(100, 36));
         img = new ImageIcon(this.getClass().getResource("/images/world.png"));

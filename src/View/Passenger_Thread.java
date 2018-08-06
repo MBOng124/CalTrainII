@@ -26,23 +26,26 @@ public class Passenger_Thread extends Thread{
             }
             lock.lock();
             try{
+                System.out.println("Passenger "+panel.getXp()+" "+panel.getTrain()+" ");
+                System.out.println(panel.getTrain());
                 if(panel.getTrain() == null){
+                    //System.out.println("A");
                     if(CalTrain.getStations().get(panel.getStart()).getTrains() != null){
                         CalTrain.getStations().get(panel.getStart()).getTrains().addPassengers(panel);
-                        for(int i = 0; i < CalTrain.getStations().get(panel.getStart()).getPassengers().size(); i++){
-                            if(CalTrain.getStations().get(panel.getStart()).getPassengers().get(i) == panel){
-                                CalTrain.getStations().get(panel.getStart()).getPassengers().set(i, null);
-                            }
-                        }
+                        panel.setTrain(CalTrain.getStations().get(panel.getStart()).getTrains());
+                        System.out.println("Passenger: "+panel.getXp()+" Boarded Train");
                         panel.setVisible(false);
-                        CalTrain.getStations().get(panel.getStart()).getTrains().getThread().getCondition().signal();
+                        //signal for entry animation
                     }else{
-                        conditon.await();
+
                     }
                 }else{
                     if(CalTrain.getStations().get(panel.getTrain().getThread().getAt()).getStationId() ==
                             panel.getEnd()){
-                        CalTrain.getStations().get(panel.getTrain().getThread().getAt())
+                        panel.setTrain(null);
+                        System.out.println("Got to destination");
+                        this.join();
+                        //signal for exit animation
                     }
                 }
             } catch (InterruptedException e) {

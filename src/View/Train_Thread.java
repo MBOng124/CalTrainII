@@ -30,31 +30,61 @@ public class Train_Thread extends Thread{
                 e.printStackTrace();
             }
             lock.lock();
-            System.out.println("Train: "+panel.getXp()+" "+at);
-            System.out.println(CalTrain.getStations().get(at).getTrains());
+            System.out.println(CalTrain.getStations().get(0));
+            System.out.println("Train: "+panel.getXp()+" "+CalTrain.getStations().get(at).getStationId());
+            System.out.println("Train: "+panel.getXp()+" Population: "+panel.getPassengers().size());
+            //System.out.println(CalTrain.getStations().get(at).getTrains());
             try{
-                if(CalTrain.getStations().get(at).getPassengers() != null &&
-                        panel.getPassengers().size() < panel.getMaxCount()){
-                    CalTrain.getStations().get(at).getPassengers().get(0).getThread().getConditon().signal();
-                    condition.await();
-                }else{
-                    if(CalTrain.getStations().get(at+1).getTrains() == null) {
-                        if(at < 15){
-                            CalTrain.getStations().get(at).setTrains(null);
-                            CalTrain.getStations().get(at + 1).setTrains(panel);
-                            at++;
+                System.out.println("Waiting");
+                condition.awaitNanos(1000000000);
+                if(CalTrain.getStations().get(at) instanceof Station){
+                    if(CalTrain.getStations().get(at).getPassengers().size() > 0&&
+                            panel.getPassengers().size() < panel.getMaxCount()){
+                        if(CalTrain.getStations().get(at).getPassengers().size() > 0){
+                            panel.addPassengers(CalTrain.getStations().get(at).getPassengers().get(0));
+                            CalTrain.getStations().get(at).getPassengers().remove(0);
                         }
-                        if(at >= 15){
-                            CalTrain.getStations().get(at).setTrains(null);
+
+                    }else{
+                        if(panel.getPassengers().size() > 0){
+                            for(int i = 0; i < panel.getPassengers().size(); i++){
+                                if(at == panel.getPassengers().get(i).getEnd()){
+                                    panel.getPassengers().remove(i);
+                                }
+                            }
+                        }
+                        if(CalTrain.getStations().get((at+1)%CalTrain.getStations().size()).getTrains() == null) {
+                            if(at % CalTrain.getStations().size() < CalTrain.getStations().size()){
+                                CalTrain.getStations().get(at%CalTrain.getStations().size()).setTrains(null);
+                                CalTrain.getStations().get((at + 1)%CalTrain.getStations().size()).setTrains(panel);
+                                at = (at+1)%CalTrain.getStations().size();
+                            }
+                            if(at % CalTrain.getStations().size() >= CalTrain.getStations().size()){
+                                CalTrain.getStations().get(at%CalTrain.getStations().size()).setTrains(null);
+                                System.out.println("Arrived at last station bye");
+                                this.join();
+                            }
+                        }
+                    }
+                }else if(CalTrain.getStations().get(at) instanceof SubStation){
+                    if(CalTrain.getStations().get((at+1)%CalTrain.getStations().size()).getTrains() == null) {
+                        if(at % CalTrain.getStations().size() < CalTrain.getStations().size()){
+                            CalTrain.getStations().get(at%CalTrain.getStations().size()).setTrains(null);
+                            CalTrain.getStations().get((at + 1)%CalTrain.getStations().size()).setTrains(panel);
+                            at = (at+1)%CalTrain.getStations().size();
+                        }
+                        if(at % CalTrain.getStations().size() >= CalTrain.getStations().size()){
+                            CalTrain.getStations().get(at%CalTrain.getStations().size()).setTrains(null);
                             System.out.println("Arrived at last station bye");
                             this.join();
                         }
+                    }else{
+                        System.out.println("Train ahead");
                     }
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
-                System.out.println("Unlocked");
                 lock.unlock();
             }
 
