@@ -13,7 +13,7 @@ public class Passenger extends JPanel {
     private int start, end;
     private Component current;
 
-    public Passenger(int x, int y, int start, int end, Station initial){
+    public Passenger(int x, int y, int start, int end, Component initial){
         thread = new Passenger_Thread(this);
         thread.start();
         mainPanel = new JPanel();

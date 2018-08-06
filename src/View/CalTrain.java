@@ -27,6 +27,8 @@ public class CalTrain {
 	private ArrayList<Passenger> passengers;
 	private ArrayList<Train> trains;
 	private Train train1, train2;
+	private Passenger pass1, pass2, pass3, pass4;
+
 
     public CalTrain(){
         /*  Set up frame */
@@ -156,6 +158,10 @@ public class CalTrain {
         train2 = new Train(50, 20, 10, stations);
         main.add(train2);
         train2.setBounds(0, 0, 300, 500);
+        pass1 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+        pass2 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+        /*pass3 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+        pass4 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));*/
 
     }
     
@@ -175,7 +181,6 @@ public class CalTrain {
         passengers.add(passenger);   
     }
 
-        
     public void addTrains(Train train){
 		trains.add(train);
     }

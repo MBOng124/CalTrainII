@@ -33,16 +33,22 @@ public class Train_Thread extends Thread{
             System.out.println("Train: "+panel.getXp()+" "+at);
             System.out.println(CalTrain.getStations().get(at).getTrains());
             try{
-                if(CalTrain.getStations().get(at+1).getTrains() == null) {
-                    if(at < 15){
-                        CalTrain.getStations().get(at).setTrains(null);
-                        CalTrain.getStations().get(at + 1).setTrains(panel);
-                        at++;
-                    }
-                    if(at >= 15){
-                        CalTrain.getStations().get(at).setTrains(null);
-                        System.out.println("Arrived at last station bye");
-                        this.join();
+                if(CalTrain.getStations().get(at).getPassengers() != null &&
+                        panel.getPassengers().size() < panel.getMaxCount()){
+                    CalTrain.getStations().get(at).getPassengers().get(0).getThread().getConditon().signal();
+                    condition.await();
+                }else{
+                    if(CalTrain.getStations().get(at+1).getTrains() == null) {
+                        if(at < 15){
+                            CalTrain.getStations().get(at).setTrains(null);
+                            CalTrain.getStations().get(at + 1).setTrains(panel);
+                            at++;
+                        }
+                        if(at >= 15){
+                            CalTrain.getStations().get(at).setTrains(null);
+                            System.out.println("Arrived at last station bye");
+                            this.join();
+                        }
                     }
                 }
             } catch (InterruptedException e) {
@@ -55,4 +61,15 @@ public class Train_Thread extends Thread{
         }
     }
 
+    public int getAt() {
+        return at;
+    }
+
+    public Lock getLock() {
+        return lock;
+    }
+
+    public Condition getCondition() {
+        return condition;
+    }
 }
