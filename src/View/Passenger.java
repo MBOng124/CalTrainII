@@ -2,24 +2,32 @@ package View;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Passenger extends JPanel {
     private JPanel mainPanel;
     private ImageIcon img;
-    private Image image;
-    private Passenger_Thread thread;
+    private ArrayList<Image> image;
+    private Passenger_Thread_Monitor thread;
     private int x, y, movX, movY;
     private Train train;// not sure if this is needed
     private int start, end;
     private Component current;
+    private static int passId = 0;
+    private int id;
 
     public Passenger(int x, int y, int start, int end, Component initial){
-        thread = new Passenger_Thread(this);
+        thread = new Passenger_Thread_Monitor(this);
         thread.start();
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(36, 36));
-       /* img = new ImageIcon(this.getClass().getResource(" "));
-        image = img.getImage();*/
+        image = new ArrayList<>();
+        img = new ImageIcon(this.getClass().getResource("/images/ronaldo.png"));
+        image.add(img.getImage());
+        img = new ImageIcon(this.getClass().getResource("/images/dk2.png"));
+        image.add(img.getImage());
+        img = new ImageIcon(this.getClass().getResource("/images/dk3.png"));
+        image.add(img.getImage());
         movX = 1;
         movY = 1;
         this.x = x;
@@ -27,6 +35,8 @@ public class Passenger extends JPanel {
         this.start = start;
         this.end = end;
         this.current = initial;
+        id = passId;
+        passId++;
         mainPanel.setOpaque(false);
         this.setOpaque(false);
     }
@@ -34,7 +44,7 @@ public class Passenger extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //g.drawImage(image, x, y, null);
+        g.drawImage(image.get(id%3), x, y, null);
         //this.setBounds(x, y, 36, 36);
 
     }
@@ -79,7 +89,7 @@ public class Passenger extends JPanel {
         this.train = train;
     }
 
-    public Passenger_Thread getThread() {
+    public Passenger_Thread_Monitor getThread() {
         return thread;
     }
 

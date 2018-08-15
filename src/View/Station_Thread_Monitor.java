@@ -2,10 +2,10 @@ package View;
 
 import javax.swing.*;
 
-public class Station_Thread extends Thread {
+public class Station_Thread_Monitor extends Thread {
     private Station panel;
 
-    public Station_Thread(Station panel){
+    public Station_Thread_Monitor(Station panel){
         this.panel = panel;
     }
 

@@ -19,15 +19,7 @@ public class CalTrain {
     private JTextField trainTxt;
     private JPanel main, add, input, passOpt, trainOpt, realMain, subMain;
     private JOptionPane option, trainOption;
-
-    public static ArrayList<Component> getStations() {
-        return stations;
-    }
-
-    public static void setStations(ArrayList<Component> stations) {
-        CalTrain.stations = stations;
-    }
-
+    private Terminal terminal;
     private static ArrayList<Component> stations;
 	private ArrayList<Passenger> passengers;
 	private ArrayList<Train> trains;
@@ -36,10 +28,11 @@ public class CalTrain {
 
 
     public CalTrain(){
+        terminal = new Terminal(0, 0);
         /*  Set up frame */
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(800, 600));
+        frame.setPreferredSize(new Dimension(800, 700));
         frame.setLayout(null);
         frame.setBackground(Color.WHITE);
         frame.setResizable(false);
@@ -58,7 +51,7 @@ public class CalTrain {
     private void init(){
         //init panels
         realMain = new JPanel();
-        realMain.setBounds(100, 0, 800, 600);
+        realMain.setBounds(0, 0, 800, 600);
         realMain.setBackground(Color.white);
         realMain.setLayout(null);
         realMain.setVisible(true);
@@ -82,7 +75,7 @@ public class CalTrain {
         main.add(subMain);
 
         input = new JPanel();
-        input.setBounds(0, 0, 100, 600);
+        input.setBounds(0, 600, 800, 100);
         input.setBackground(Color.white);
         input.setLayout(null);
         input.setVisible(true);
@@ -96,17 +89,13 @@ public class CalTrain {
         frame.add(add);*/
 
         bgLbl = new JLabel();
-        railLbl = new JLabel();
-        bgImg = new ImageIcon(this.getClass().getResource("/images/bg.png"));
+        bgImg = new ImageIcon(this.getClass().getResource("/images/train rails2.png"));
         bgLbl.setIcon(bgImg);
-        railImg = new ImageIcon(this.getClass().getResource("/images/rail2.png"));
-        railLbl.setIcon(railImg);
+
 
 
         realMain.add(bgLbl);
         bgLbl.setBounds(0,0, 800, 600);
-        main.add(railLbl);
-        railLbl.setBounds(50, 150, 600, 280);
 
         //for adding passengers
         //option = new JOptionPane();
@@ -172,7 +161,7 @@ public class CalTrain {
         addPassenger.setBounds(0, 0, 100, 25);
         input.add(addPassenger);
 
-        addTrain.setBounds(0, 125, 100, 25);
+        addTrain.setBounds(110, 0, 100, 25);
         input.add(addTrain);
 
 
@@ -217,27 +206,28 @@ public class CalTrain {
             public void actionPerformed(ActionEvent e) {
                 int capacity;
                 capacity = Integer.parseInt(trainTxt.getText().toString());
-                Train train = new Train(10, 20, capacity, stations);
-                train.setBounds(0, 0, 300, 500);
+                Train train = new Train(0, 245, capacity, stations);
+                System.out.println("Added");
+                terminal.getAllTrains().add(train);
+                train.setBounds(0, 0, 800, 600);
                 main.add(train);
             }
         });
 
-        train1 = new Train(70, 235, 10, stations);
-        subMain.add(train1);
-        train1.setBounds(0, 0, 800, 500);
-        train2 = new Train(50, 20, 10, stations);
-        subMain.add(train2);
-        train2.setBounds(0, 0, 800, 500);
+        /*for(int i = 0; i < 10; i++){
+            Train train = new Train(0, 245, 10, stations);
+            terminal.getAllTrains().add(train);
+            main.add(train);
+            train.setBounds(0, 0, 800, 600);
+        }*/
 
 
-
-        pass1 = new Passenger(100, 100, 3, 5, CalTrain.getStations().get(2));
+        /*pass1 = new Passenger(100, 100, 3, 5, CalTrain.getStations().get(2));
         subMain.add(pass1);
         pass1.setBounds(0, 0, 800, 500);
         pass2 = new Passenger(120, 20, 3, 5, CalTrain.getStations().get(2));
         //stations.get(3).getPassengers().add(pass1);
-        /*pass3 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
+        pass3 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));
         pass4 = new Passenger(100, 20, 3, 5, CalTrain.getStations().get(2));*/
 
     }
@@ -264,5 +254,13 @@ public class CalTrain {
 	public void addStations(Station station){
 	  stations.add(station);
 	}
+
+    public static ArrayList<Component> getStations() {
+        return stations;
+    }
+
+    public static void setStations(ArrayList<Component> stations) {
+        CalTrain.stations = stations;
+    }
 
 }

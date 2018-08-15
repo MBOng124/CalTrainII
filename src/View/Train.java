@@ -9,20 +9,22 @@ public class Train extends JPanel {
     private ImageIcon img;
     private Image image;
     private int x, y, movX, movY;
-    private Train_Thread thread;
+    private Train_Thread_Monitor thread;
     private Component current, next;
     private final int maxCount;
     private JLabel stationLbl;
     private ArrayList<Component> stations;
     private ArrayList<Passenger> passengers;
+    private static int idCount = 0;
+    private int stationId;
 
     public Train(int x, int y, int maxCount, ArrayList<Component> stations){
         System.out.println("Train Created");
-        thread = new Train_Thread(this);
+        thread = new Train_Thread_Monitor(this);
         thread.start();
         mainPanel = new JPanel();
         mainPanel.setPreferredSize(new Dimension(36, 36));
-        img = new ImageIcon(this.getClass().getResource("/images/train2.png"));
+        img = new ImageIcon(this.getClass().getResource("/images/train mod.png"));
         image = img.getImage();
         movX = 1;
         this.x = x;
@@ -36,6 +38,8 @@ public class Train extends JPanel {
         mainPanel.add(stationLbl);
         stationLbl.setVisible(true);
         passengers = new ArrayList<>();
+        this.setStationId(idCount);
+        idCount++;
     }
 
     @Override
@@ -79,7 +83,7 @@ public class Train extends JPanel {
         this.movY = movY;
     }
 
-    public Train_Thread getThread() {
+    public Train_Thread_Monitor getThread() {
         return thread;
     }
 
@@ -129,5 +133,13 @@ public class Train extends JPanel {
 
     public void setStationLbl(JLabel stationLbl) {
         this.stationLbl = stationLbl;
+    }
+
+    public int getStationId() {
+        return stationId;
+    }
+
+    public void setStationId(int stationId) {
+        this.stationId = stationId;
     }
 }

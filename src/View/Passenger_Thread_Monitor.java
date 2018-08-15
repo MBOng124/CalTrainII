@@ -4,15 +4,14 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/*  STILL LACKS CODE FOR ANIMATION  */
-public class Passenger_Thread extends Thread{
+public class Passenger_Thread_Monitor extends Thread{
     private Passenger panel;
     private int initX, initY;
     private Lock lock;
     private Condition conditon;
     private boolean animate, entry, exit;
 
-    public Passenger_Thread(Passenger passenger){
+    public Passenger_Thread_Monitor(Passenger passenger){
         this.panel = passenger;
         lock = new ReentrantLock();
         conditon = lock.newCondition();
@@ -33,8 +32,7 @@ public class Passenger_Thread extends Thread{
             try{
                 if(!entry && !exit){
                     conditon.awaitNanos(1000000000);
-                    System.out.println("Passenger "+panel.getXp()+" "+panel.getTrain()+" ");
-                    System.out.println(panel.getTrain());
+                    /*System.out.println("Passenger "+panel.getXp()+" "+panel.getTrain()+" ");*/
                     if(panel.getTrain() == null){
                         //System.out.println("A");
                         if(CalTrain.getStations().get(panel.getStart()).getTrains() != null){
@@ -51,6 +49,7 @@ public class Passenger_Thread extends Thread{
                         if(CalTrain.getStations().get(panel.getTrain().getThread().getAt()).getStationId() ==
                                 panel.getEnd()){
                             panel.setX(panel.getTrain().getXp());
+                            panel.getTrain().getPassengers().remove(panel);
                             panel.setTrain(null);
                             System.out.println("Got to destination");
                             exit = true;

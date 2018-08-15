@@ -12,7 +12,7 @@ public class Component extends JPanel {
     protected BufferedImage bufImg;
     protected JLabel lbl;
     protected int x, y;
-    protected Station_Thread thread;
+    protected Station_Thread_Monitor thread;
     protected Train trains;
     protected ArrayList<Passenger> passengers;
     protected int count;
