@@ -36,11 +36,14 @@ public class Passenger_Thread_Monitor extends Thread{
                     if(panel.getTrain() == null){
                         //System.out.println("A");
                         if(CalTrain.getStations().get(panel.getStart()).getTrains() != null){
-                            CalTrain.getStations().get(panel.getStart()).getTrains().addPassengers(panel);
-                            panel.setTrain(CalTrain.getStations().get(panel.getStart()).getTrains());
-                            System.out.println("Passenger: "+panel.getXp()+" Boarded Train");
-                            entry = true;
-                            animate = true;
+                            Train train = CalTrain.getStations().get(panel.getStart()).getTrains();
+                            if(train.getPassengers().size() < train.getMaxCount()){
+                                train.addPassengers(panel);
+                                panel.setTrain(CalTrain.getStations().get(panel.getStart()).getTrains());
+                                System.out.println("Passenger: "+panel.getId()+" Boarded Train");
+                                entry = true;
+                                animate = true;
+                            }
                             //signal for entry animation
                         }else{
 
@@ -53,6 +56,14 @@ public class Passenger_Thread_Monitor extends Thread{
                             panel.setTrain(null);
                             System.out.println("Got to destination");
                             exit = true;
+                            int end = panel.getEnd();
+                            if(end <= 4){
+                                System.out.println(end);
+                                panel.setX(panel.getEnd()%5-161);
+                            }
+                            if(end > 4){
+                                panel.setX((panel.getEnd()%5 -1)-161);
+                            }
                             //signal for exit animation
                         }
                     }
@@ -61,15 +72,20 @@ public class Passenger_Thread_Monitor extends Thread{
                         initY = panel.getYp();
                         entry = false;
                         animate = false;
+                        this.sleep(1000);
                         panel.setVisible(false);
                     }else{
                         int y = panel.getYp();
                         y+= panel.getmovY();
                         panel.setY(y);
+                        panel.repaint();
                     }
 
                 }if(exit){
+                    System.out.println("hello");
                     panel.setVisible(true);
+                    this.sleep(1000);
+                    System.out.println(initY - panel.getYp() >= 30);
                     if(initY - panel.getYp() >= 30){
                         exit = false;
                         panel.setVisible(false);
@@ -78,6 +94,7 @@ public class Passenger_Thread_Monitor extends Thread{
                         int y = panel.getYp();
                         y-= panel.getmovY();
                         panel.setY(y);
+                        panel.repaint();
                     }
                 }
             } catch (InterruptedException e) {

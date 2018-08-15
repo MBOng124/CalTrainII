@@ -190,12 +190,20 @@ public class CalTrain {
                 int start, end;
                 start = Integer.parseInt(passStart.getSelectedItem().toString());
                 end = Integer.parseInt(passEnd.getSelectedItem().toString());
-                System.out.println(start*2-1);
-                /*if(end > start){
-                    Passenger passenger = new Passenger(0, 0, start*2-1, end*2-1, stations.get(start*2-1));
+                if(end > start){
+                    if(start <= 4){
+                        Passenger passenger = new Passenger(start%5*161, 190, start*2-1, end*2-1, stations.get(start*2-1));
+                        main.add(passenger);
+                        passenger.setBounds(0, 0, 800, 600);
+                    }
+                    if(start > 4){
+                        Passenger passenger = new Passenger((start%5+1)*161, 490,start*2-1, end*2-1, stations.get(start*2-1));
+                        main.add(passenger);
+                        passenger.setBounds(0, 0, 800, 600);
+                    }
                 }else{
                     new JOptionPane().showMessageDialog(option, "Invalid input");
-                }*/
+                }
 
 
             }

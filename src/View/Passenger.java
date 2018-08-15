@@ -109,4 +109,8 @@ public class Passenger extends JPanel {
     public void setCurrent(Component current) {
         this.current = current;
     }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -23,19 +23,17 @@ public class Terminal_Thread extends Thread {
             e.printStackTrace();
         }
         while(true){
-            lock.lock();
-            try{
+            synchronized (this){
                 if(terminal.getAllTrains().size() > 0){
                     if(CalTrain.getStations().get(1).getTrains() == null){
                         synchronized (this){
+
                             terminal.getAllTrains().get(0).getThread().notifyThread();
                             System.out.println();
                             terminal.getAllTrains().remove(0);
                         }
                     }
                 }
-            }finally {
-                lock.unlock();
             }
         }
     }

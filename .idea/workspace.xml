@@ -2,32 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="adc8b125-ef42-466a-811c-bd4dec4e64b3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/Terminal_Thread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/CalTrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Component.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Component.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Monitor.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Passenger.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Passenger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Passenger_Thread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Station.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Station.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Station_Thread.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Terminal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Terminal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Train.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Train.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/TrainOption.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Train_Thread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Passenger_Thread_Monitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Passenger_Thread_Monitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CalTrainII/View/Terminal_Thread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CalTrainII/View/Terminal_Thread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/CalTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/CalTrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Component.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Passenger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Passenger_Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Station.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Station_Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Station_Thread_Monitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Terminal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Terminal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Train.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Train.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/TrainOption.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Train_Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Train_Thread_Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Terminal_Thread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Terminal_Thread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Train_Thread_Monitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Train_Thread_Monitor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +29,8 @@
       <file leaf-file-name="CalTrain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/CalTrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
+            <state relative-caret-position="325">
+              <caret line="273" column="1" lean-forward="true" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,23 +38,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Passenger_Thread_Monitor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Passenger_Thread_Monitor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="200">
+              <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3447#3448#0" expanded="true" />
+                <element signature="e#3474#3475#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Passenger.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Passenger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Passenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
+            <state>
+              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -75,8 +64,8 @@
       <file leaf-file-name="Train_Thread_Monitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Train_Thread_Monitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+            <state relative-caret-position="229">
+              <caret line="81" column="32" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,16 +73,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Train.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Train.java">
+      <file leaf-file-name="Terminal_Thread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/Terminal_Thread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state relative-caret-position="318">
+              <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
               <folding>
-                <element signature="e#3156#3157#0" expanded="true" />
-                <element signature="e#3188#3189#0" expanded="true" />
-                <element signature="e#3235#3236#0" expanded="true" />
-                <element signature="e#3277#3278#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,9 +110,13 @@
       <find>movX</find>
       <find>got</find>
       <find>a</find>
-      <find />
       <find>awai</find>
       <find>train</find>
+      <find>syste</find>
+      <find>train</find>
+      <find>setVi</find>
+      <find>setVisible(false)</find>
+      <find>re</find>
     </findStrings>
     <replaceStrings>
       <replace>mov</replace>
@@ -155,11 +145,11 @@
         <option value="$PROJECT_DIR$/src/View/Terminal.java" />
         <option value="$PROJECT_DIR$/src/View/Component.java" />
         <option value="$PROJECT_DIR$/src/View/Train.java" />
-        <option value="$PROJECT_DIR$/src/View/Train_Thread_Monitor.java" />
+        <option value="$PROJECT_DIR$/src/View/Passenger.java" />
         <option value="$PROJECT_DIR$/src/View/CalTrain.java" />
         <option value="$PROJECT_DIR$/src/View/Terminal_Thread.java" />
+        <option value="$PROJECT_DIR$/src/View/Train_Thread_Monitor.java" />
         <option value="$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java" />
-        <option value="$PROJECT_DIR$/src/View/Passenger.java" />
       </list>
     </option>
   </component>
@@ -169,7 +159,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="y" value="-10" />
     <option name="width" value="1386" />
@@ -181,6 +171,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -203,9 +196,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,17 +319,20 @@
       <workItem from="1534154593420" duration="2976000" />
       <workItem from="1534211752767" duration="1443000" />
       <workItem from="1534266133852" duration="521000" />
+      <workItem from="1534310730030" duration="7655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139045000" />
+    <option name="totallyTimeSpent" value="146700000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="-10" width="1386" height="788" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.32794118" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -347,11 +340,11 @@
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.30735293" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.32861635" />
       <window_info anchor="bottom" id="Terminal" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.34160584" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.34260616" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
@@ -365,7 +358,6 @@
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32861635" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32794118" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -655,16 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Train_Thread_Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -676,6 +658,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/SubStation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Monitor.java" />
+    <entry file="file://$PROJECT_DIR$/src/View/Train.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding>
+            <element signature="e#3156#3157#0" expanded="true" />
+            <element signature="e#3188#3189#0" expanded="true" />
+            <element signature="e#3235#3236#0" expanded="true" />
+            <element signature="e#3277#3278#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -693,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Terminal_Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="318">
+          <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -703,45 +706,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/CalTrain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="209" column="41" selection-start-line="209" selection-start-column="41" selection-end-line="209" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/SubStation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Train.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding>
-            <element signature="e#3156#3157#0" expanded="true" />
-            <element signature="e#3188#3189#0" expanded="true" />
-            <element signature="e#3235#3236#0" expanded="true" />
-            <element signature="e#3277#3278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="325">
+          <caret line="273" column="1" lean-forward="true" selection-start-line="273" selection-start-column="1" selection-end-line="273" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -750,8 +716,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Passenger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="46" column="44" selection-start-line="46" selection-start-column="44" selection-end-line="46" selection-end-column="44" />
+        <state>
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Train_Thread_Monitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="81" column="32" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/Passenger_Thread_Monitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="80" column="38" selection-start-line="80" selection-start-column="38" selection-end-line="80" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3447#3448#0" expanded="true" />
+            <element signature="e#3474#3475#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

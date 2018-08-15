@@ -129,7 +129,7 @@ public class Train_Thread_Monitor extends Thread{
                 this.join();
             }
         }else{
-            System.out.println("Train: "+panel.getXp()+" Train ahead");
+            System.out.println("Train: "+panel.getStationId()+" Train ahead");
         }
     }
 
